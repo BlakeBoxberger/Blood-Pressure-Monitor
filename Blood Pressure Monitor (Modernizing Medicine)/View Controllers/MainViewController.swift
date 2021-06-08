@@ -31,7 +31,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             // Update labels
-            measurementTitleLabel.text = "Your BP is \(selectedMeasurement.category)"
+            measurementTitleLabel.text = "Your BP is \(selectedMeasurement.category.description.lowercased())."
             
             // Set dateAdded label text
             let dateFormatter = DateFormatter()
@@ -160,6 +160,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             // Create new BPMeasurement and add it to the front of the measurements array
             let newMeasurement = BPMeasurement(systolic: systolicInt, diastolic: diastolicInt)
             measurements.insert(newMeasurement, at: 0)
+            selectedMeasurement = newMeasurement
             
             // Check if the category is Hypertension Stage Two or Hypertensive Crisis
             if newMeasurement.category == .hypertensionStageTwo || newMeasurement.category == .hypertensiveCrisis {
