@@ -23,7 +23,7 @@ extension BPCategory {
             return .elevated
         } else if (130...139).contains(systolic) || (80...89).contains(diastolic) { // Unsure if Stage One and Stage Two are OR (||) or XOR (!=) as Crisis specifically says "and/or"
             return .hypertensionStageOne
-        } else if systolic >= 140 || diastolic >= 90 {
+        } else if (140...180).contains(systolic) || (90...120).contains(diastolic) {
             return .hypertensionStageTwo
         } else if systolic > 180 || diastolic > 120 {
             return .hypertensiveCrisis
